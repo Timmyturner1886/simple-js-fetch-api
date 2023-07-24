@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" lang="en>
+<head>
+    <title>Simple fetching data</title>
+    <meta charset="utf-8"></html>
+</head>
+
+<body>
+    <h1>Simple fetching data</h1>
+
+    <h1>Users</h1>
+    <ul></ul>
+
+    <script>
+      // Fetch data from the given URL using the fetch() function.
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res => {
+        return res.json(); // Parse the response as JSON and return it as a Promise.
+    })
+    .then(data => {
+        console.log(data); // Log the parsed JSON data (array of users) to the console.
+
+        // Loop through each user object in the 'data' array.
+        data.forEach(user => {
+            const markup = `<i>${user.name}</i>`; // Create an italicized element with the user's name.
+
+            // Add the 'markup' (user's name in italics) as an HTML string to the end of the <ul> element.
+            document.querySelector('ul').insertAdjacentHTML('beforeend', markup); 
+        })
+    });
+
+
+    </script>
+</body>
+
+</html>
